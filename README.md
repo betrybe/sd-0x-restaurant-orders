@@ -79,22 +79,20 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
 
 A lanchonete Pão Na Chapa atualmente possui um sistema de faturamento dos pedidos dos clientes que salva a nome da pessoa junto com o pedido realizado, bem como dia do atendimento.
 
-A lanchonete quer promover ações de marketing e para isso deseja extrair informações como:
+A lanchonete quer promover ações de marketing, mas para isso a agência de publicidade precisa das informações abaixo:
 
-* Quem são os clientes mais assíduos da lanchonete?
-* Quais pratos são os mais pedidos?
-* Qual o dia mais movimentado e o menos movimentado da lanchonete?
-* Quais pratos cada cliente já experimentou e quais nunca pediu?
+* Qual o prato mais pedido por 'maria'?
+* Quantas vezes 'arnaldo' pediu 'hamburguer'?
+* Quais pratos 'joao' nunca pediu?
+* Quais dias 'joao' nunca foi na lanchonete?
 
-O seu projeto consiste em implementar um código que leia esses logs de compras anteriores e retorne cada uma das informações acima de maneira detalhada para que a gerência possa emitir emails de promoções direcionadas. É muito importante que essas consultas sejam muito eficientes uma vez que serão rodadas várias vezes por dia e precisam ser atualizadas a cada novo pedido realizado.
+O seu projeto consiste em implementar um código que leia esses logs de compras anteriores e retorne cada uma das informações acima de maneira detalhada para que a gerência possa emitir emails de promoções direcionadas. A segunda parte do projeto será explicada após você concluir a primeira.
 
 ---
 
 ## Desenvolvimento e testes
 
-No diretório `src/` você vai encontrar o arquivo onde devem ser implementadas todas as classes e métodos que você considerar importantes para resolver o projeto. Os testes devem ser implementados no arquivo no diretório `tests/`.
-
-
+No diretório `src/` você vai encontrar os arquivos onde devem ser implementados todas as classes e métodos que você considerar importantes para resolver o projeto. Os testes devem ser implementados no arquivo no diretório `tests/`.
 
 Para executar os testes, lembre-se de primeiro **criar e ativar o ambiente virtual**, além de também instalar as dependências do projeto. Isso pode ser feito através dos comandos:
 
@@ -122,33 +120,84 @@ $ python3 -m flake8
 
 ---
 
-## Dados
+## Orientações para execução do projeto
 
-### O arquivo de entrada
+### Etapa 1 - Obtendo informações para a campanha de publicidade
 
-### ...
+**Detalhes do arquivo**  
+* O histórico de pedidos é um arquivo csv com as informações de `cliente,pedido,dia` um por linha e sem nome das colunas (a primeira linha já é um pedido)
+* Todas as informações são strings com letras minúsculas
+* O histórico contém pedidos feritoas em todos os dias da semana e de todos os pratos que a lanchonete oferece.
+* Os dias da semana estão no formato "...-feira", "sabado" ou "domingo".
+* A lanchonete abre todos os dias da semana.
 
-### ...
+**Implementação**  
+
+* No arquivo `analyse_log.py`, escreva uma função que responda às seguintes perguntas abaixo:
+  1. Qual o prato mais pedido por 'maria'?
+  2. Quantas vezes 'arnaldo' pediu 'hamburguer'?
+  3. Quais pratos 'joao' nunca pediu?
+  4. Quais dias 'joao' nunca foi na lanchonete?
+
+* As respostas devem ser impressas na tela. Fique à vontade com a frase que será mostrada.
+* **NÃO É NECESSÁRIO IMPLEMENTAR TESTES PARA A PRIMEIRA ETAPA**
+
+
+### Requisitos obrigatórios:
+
+* No arquivo analyse_log.py deve haver pelo menos um função que imprima na tela os valores corretos
+* Não é necessária a implementação de testes para a primeira etapa
+
+### As seguintes verificações serão feitas:
+
+* Nessa etapa será verificada apenas a corretude das respostas
 
 ---
 
-## Requisitos obrigatórios:
+### Etapa 2 - Análises permanentes
 
-### ...
+* A campanha de marketing foi um sucesso! A gerência agora deseja um sistema que mantenha um registro contínuo de algumas informações.
+* Mais especificamente, desejam que a cada novo pedido os números sejam atualizados e que possam fazer perguntas sempre que quiserem, sem a necessidade se criar uma nova função a cada pergunta.
 
-#### 1 - ...
+**Implementação**  
 
-...
+* No arquivo `track_orders.py`, implemente a classe TrackOrders, contendo, no mínimo, os métodos abaixo:
 
-##### As seguintes verificações serão feitas:
+```Python
+class TrackOrders:
+  def add_new_order(self, costumer, order, day):
+    raise NotImplementedError
 
-...
+  def get_most_ordered_dish_per_costumer(self, costumer):
+    raise NotImplementedError
 
----
+  def get_order_frequency_per_costumer(self, costumer, order):
+    raise NotImplementedError
 
-## Requisitos bônus:
+  def get_never_ordered_per_costumer(self, costumer):
+    raise NotImplementedError
+```
 
-### ...
+* Implemente o construtor com as atributos que você achar necessários para que a classe funcione corretamente.
+* Sugestão: implemente um método por vez e garanta que o método funciona e passa nos testes antes de seguir para a próxima implementação. A cada novo método, faça as alterações necessárias.
+* Você é livre para criar os atributos e métodos necessários. Lembre-se de criar uma classe legível e bem modularizada.
+
+**Testes**  
+
+* Para os testes, utilize o arquivo de log para povoar a classe.
+* Defina uma suíte de testes que atinja, no mínimo, 90% de cobertura.
+
+
+### Requisitos obrigatórios:
+
+* A classe TrackOrders implementada e com os testes passando
+* Cobertura de testes de, pelo menos, 90%
+
+### As seguintes verificações serão feitas:
+
+* A classe está devidamente modularizada
+* Os métodos fazem uso das técnicas de Dict e Set vistos no módulo
+* Os métodos têm complexidade de, no máximo, O(n) e O(1) sempre que possível.
 
 ---
 
