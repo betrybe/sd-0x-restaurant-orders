@@ -122,16 +122,18 @@ $ python3 -m flake8
 
 ## Orientações para execução do projeto
 
-### Etapa 1 - Obtendo informações para a campanha de publicidade
+### Etapa 1 - Campanha de publicidade
 
-**Detalhes do arquivo**  
+#### 1.1 - Apresentação
+
+* Utilize os arquivo `orders_1.csv`
 * O histórico de pedidos é um arquivo csv com as informações de `cliente,pedido,dia` um por linha e sem nome das colunas (a primeira linha já é um pedido)
 * Todas as informações são strings com letras minúsculas
-* O histórico contém pedidos feritoas em todos os dias da semana e de todos os pratos que a lanchonete oferece.
+* O histórico contém pedidos feitos em todos os dias da semana e de todos os pratos que a lanchonete oferece. Ou seja, é possível saber o cardápio completo.
 * Os dias da semana estão no formato "...-feira", "sabado" ou "domingo".
 * A lanchonete abre todos os dias da semana.
 
-**Implementação**  
+#### 1.2 - Implementação
 
 * No arquivo `analyse_log.py`, escreva uma função que responda às seguintes perguntas abaixo:
   1. Qual o prato mais pedido por 'maria'?
@@ -139,29 +141,47 @@ $ python3 -m flake8
   3. Quais pratos 'joao' nunca pediu?
   4. Quais dias 'joao' nunca foi na lanchonete?
 
-* As respostas devem ser impressas na tela. Fique à vontade com a frase que será mostrada.
-* **NÃO É NECESSÁRIO IMPLEMENTAR TESTES PARA A PRIMEIRA ETAPA**
+* As respostas devem ser impressas na tela. Fique à vontade com o texto da frase que será mostrada.
 
+#### 1.3 Testes
 
-### Requisitos obrigatórios:
+* **NÃO** é necessário implementar testes para a primeira etapa
+* Verifique se a saída do seu código apresenta as saídas corretas:
+  * O prato mais pedido de Maria é: [todo]
+  * Arnaldo comeu [todo] hamburguers
+  * Joao nunca pediu: [todo]
+  * Joao nunca foi na lanchonete nos dias [todo]
+
+#### 1.4 - Requisitos obrigatórios
 
 * No arquivo analyse_log.py deve haver pelo menos um função que imprima na tela os valores corretos
 * Não é necessária a implementação de testes para a primeira etapa
 
-### As seguintes verificações serão feitas:
+#### 1.5 - As seguintes verificações serão feitas:
 
-* Nessa etapa será verificada apenas a corretude das respostas
+* Corretude das saídas do código
+* Legibilidade do código
+* Utilização dos conceitos vistos no módulo
 
 ---
 
-### Etapa 2 - Análises permanentes
+### Etapa 2 - Análises contínuas
 
-* A campanha de marketing foi um sucesso! A gerência agora deseja um sistema que mantenha um registro contínuo de algumas informações.
-* Mais especificamente, desejam que a cada novo pedido os números sejam atualizados e que possam fazer perguntas sempre que quiserem, sem a necessidade se criar uma nova função a cada pergunta.
+#### 2.1 - Apresentação
 
-**Implementação**  
+* A campanha de marketing foi um sucesso! A gerência agora deseja um sistema que mantenha um registro contínuo dessas informações.
+* Mais especificamente, desejam que o sistema tenha controles que permitam a extração das seguintes informações:
+  * Prato favorito por cliente
+  * Quanto de cada prato cada cliente já pediu
+  * Pratos nunca pedidos por cada cliente
+  * Dia mais movimentado
+  * Dia menos movimentado
 
-* No arquivo `track_orders.py`, implemente a classe TrackOrders, contendo, no mínimo, os métodos abaixo:
+* Para isso, você precisará implemetar uma classe que entregue as informações acima.
+
+#### 2.2 Implementação
+
+* No arquivo `track_orders.py`, implemente a classe TrackOrders, contendo, **no mínimo**, os métodos abaixo:
 
 ```Python
 class TrackOrders:
@@ -171,10 +191,16 @@ class TrackOrders:
   def get_most_ordered_dish_per_costumer(self, costumer):
     raise NotImplementedError
 
-  def get_order_frequency_per_costumer(self, costumer, order):
+  def get_dish_quantity_per_costumer(self, costumer, order):
     raise NotImplementedError
 
   def get_never_ordered_per_costumer(self, costumer):
+    raise NotImplementedError
+
+  def get_busiest_day(self):
+    raise NotImplementedError
+
+  def get_least_busy_day(self):
     raise NotImplementedError
 ```
 
@@ -182,22 +208,69 @@ class TrackOrders:
 * Sugestão: implemente um método por vez e garanta que o método funciona e passa nos testes antes de seguir para a próxima implementação. A cada novo método, faça as alterações necessárias.
 * Você é livre para criar os atributos e métodos necessários. Lembre-se de criar uma classe legível e bem modularizada.
 
-**Testes**  
+#### 2.3 Testes
 
-* Para os testes, utilize o arquivo de log para povoar a classe.
-* Defina uma suíte de testes que atinja, no mínimo, 90% de cobertura.
+* Implemente os testes no arquivo `test_track_orders.py`
+* Garanta, no mínimo, 90% de cobertura.
 
+#### 2.4 Requisitos obrigatórios:
 
-### Requisitos obrigatórios:
-
-* A classe TrackOrders implementada e com os testes passando
+* Classe TrackOrders implementada e com todos os testes passando
 * Cobertura de testes de, pelo menos, 90%
 
-### As seguintes verificações serão feitas:
+#### 2.5 As seguintes verificações serão feitas:
 
 * A classe está devidamente modularizada
 * Os métodos fazem uso das técnicas de Dict e Set vistos no módulo
 * Os métodos têm complexidade de, no máximo, O(n) e O(1) sempre que possível.
+
+---
+
+### [Bônus 3] Etapa 3 - Controle de estoque
+
+#### 3.1 - Apresentação
+
+* 
+
+#### 3.2 Implementação
+
+* 
+
+#### 3.3 Testes
+
+* 
+
+#### 3.4 Requisitos obrigatórios:
+
+* 
+
+#### 3.5 As seguintes verificações serão feitas:
+
+* 
+
+---
+
+#### [Bônus 2] Etapa 4 - Estoque pode acabar
+
+#### 4.1 - Apresentação
+
+* 
+
+#### 4.2 Implementação
+
+* 
+
+#### 4.3 Testes
+
+* 
+
+#### 4.4 Requisitos obrigatórios:
+
+* 
+
+#### 4.5 As seguintes verificações serão feitas:
+
+* 
 
 ---
 
