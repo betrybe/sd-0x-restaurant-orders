@@ -215,7 +215,7 @@ class TrackOrders:
 
 #### 2.4 Requisitos obrigatórios:
 
-* Classe TrackOrders implementada e com todos os testes passando
+* Classe `TrackOrders` implementada e com todos os testes passando
 * Cobertura de testes de, pelo menos, 90%
 
 #### 2.5 As seguintes verificações serão feitas:
@@ -226,35 +226,76 @@ class TrackOrders:
 
 ---
 
-### [Bônus 3] Etapa 3 - Controle de estoque
+### [Bônus parte 1] Etapa 3 - Controle de estoque
 
 #### 3.1 - Apresentação
 
-* 
+* Atualmente o controle de estoque do ingredientes é feito no caderninho. Ao final da semana, uma pessoa conta quantas unidades de cada ingredientes ainda restam no estoque e anota quantos precisam ser comprados para completar o estoque mínimo de cada ingrediente
+* A lanchonete deseja automatizar esse controle: No final da semana, a gerência deseja imprimir uma lista de compras com a quantidade de cada ingrediente que deve ser comprado. 
 
 #### 3.2 Implementação
 
-* 
+* No arquivo `stock_control.py` você deve implementar a classe `StockControl` que recebe a informação de um pedido e tem um método que retorna a lista de compras da semana.
+
+```Python
+class StockControl:
+  def __init__(self):
+    self.ingredients = {
+        'hamburguer': ['pao', 'hamburguer', 'queijo'],
+        'pizza': ['massa', 'queijo', 'molho'],
+        'misto-quente': ['pao', 'queijo', 'presunto'],
+        'coxinha': ['massa', 'frango'],
+    }
+  
+    self.minimum_stock = {
+        'pao': 50,
+        'hamburguer': 35,
+        'queijo': 100,
+        'molho': 30,
+        'presunto': 20,
+        'massa': 20,
+        'frango': 10,
+    }
+  
+  def add_new_order(self, costumer, order, _):
+    raise NotImplementedErrorse 
+
+  def get_shopping_list(self):
+    raise NotImplementedError
+
+```
+* Você pode implementar quantos métodos auxiliares e os atributos que julgar necessários para a boa modularização do seu código.
+* É garantido que os pedidos da semana não irão zerar nenhum dos estoques.
+* O arquivo `main.py` conecta as duas classes. Ele faz a leitura do arquivo `orders_1.csv` e envia as informações do pedido a ambas. Você pode visualizar o comportamento das suas duas classes rodando esse arquivo.
 
 #### 3.3 Testes
 
-* 
+* Utilize o arquivo `orders_1.csv` para verificar seu código.
+* Crie um teste para o método `get_shopping_list` para um cenário em que nenhum dos estoque acaba.
 
 #### 3.4 Requisitos obrigatórios:
 
-* 
+* Classe `StockControl`implementada e com todos os testes passando.
+* Teste implementado do método `get_shopping_list`.
 
 #### 3.5 As seguintes verificações serão feitas:
 
-* 
+* A classe está devidamente modularizada
+* Os métodos fazem uso das técnicas de Dict e Set vistos no módulo
 
 ---
 
-#### [Bônus 2] Etapa 4 - Estoque pode acabar
+#### [Bônus parte 2] Etapa 4 - Estoque pode acabar
 
 #### 4.1 - Apresentação
 
-* 
+* As campanhas de marketing atraíram muitos novos clientes para a lanchonete. Se antes os estoques mínimos eram sempre suficientes para uma seman, agora não são mais...
+* O cardápio do lanchonete é mostrado em um painel eletrônico de forma sempre atualizada. Suponha os seguintes estoques:
+  * Pao: 1
+  * Queijo: 5
+  * Presunto: 3
+* Se a pessoa pedir um misto-quente, será possível atendê-lo. Porém o pão irá acabar. Se a próxima pessoa pedir hambugrguer, não será possível atendê-lo.
+* Sua missão é implementar um código que, caso algum ingrediente acabe, todos os pratos que usam aquele ingrediente devem ser imediatamente removidos do painel, evitando clientes frustrados.
 
 #### 4.2 Implementação
 
@@ -270,7 +311,8 @@ class TrackOrders:
 
 #### 4.5 As seguintes verificações serão feitas:
 
-* 
+* A classe está devidamente modularizada
+* Os métodos fazem uso das técnicas de Dict e Set vistos no módulo
 
 ---
 
