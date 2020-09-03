@@ -1,18 +1,24 @@
-# Recebe o sinal de order
-# 
-
+import csv
 from track_orders import TrackOrders
 from stock_control import StockControl
 from pubsub import pub
-import csv
 
-def track_orders(costumer, order, day):
-    tracker = TrackOrders()
-    tracker.add_new_order(costumer, order, day)
 
-def stock_control(costumer, order, day):
-    control = StockControl()
-    pass
+def print_info(tracker, control):
+    # Qual o prato mais pedido por Maria?
+    print(tracker.get_most_ordered_dish_per_costumer('maria'))
+
+    # Quantas vezes Arnaldo pediu hamburguer?
+    print(tracker.get_order_frequency_per_costumer('arnaldo', 'hamburguer'))
+    
+    # Quais pratos Joao nunca pediu?
+    print(tracker.get_never_ordered_per_costumer('joao'))
+
+    # Quais dias Joao nunca foi na lanchonete?
+    print(tracker.get_days_never_visited_per_costumer('joao'))
+
+    # Lista de compras
+    print(control.get_shopping_list())
 
 def main ():
     topic = 'order'
@@ -32,8 +38,7 @@ def main ():
         for costumer, order, day in csv_reader:
             pub.sendMessage(topic, costumer=costumer, order=order, day=day)
 
-    print(tracker.get_order_frequency('maria', 'hamburguer'))
-    print(control.get_quantities_to_buy())
+    print_info(tracker, control)
     
 
 if __name__ == "__main__":

@@ -327,38 +327,40 @@ class StockControl:
 
 ---
 
-#### [Bônus parte 2] Etapa 4 - Estoque pode acabar
+#### [Bônus parte 2] Etapa 4: Estoque pode acabar
 
-#### 4.1 - Apresentação
+#### 4.1 Apresentação
 
 * As campanhas de marketing atraíram muitos novos clientes para a lanchonete. Se antes os estoques mínimos eram sempre suficientes para uma semana, agora não são mais...
 * O cardápio do lanchonete é mostrado em um painel eletrônico de forma sempre atualizada. Suponha os seguintes estoques:
   * Pao: 1
   * Queijo: 5
   * Presunto: 3
-* Se a pessoa pedir um misto-quente, será possível atendê-lo. Porém o pão irá acabar. Se a próxima pessoa pedir hambugrguer, não será possível atendê-lo.
+* Se a pessoa pedir um misto-quente, será possível atendê-lo. Porém o pão irá acabar. Se a próxima pessoa pedir hamburguer, não será possível atendê-lo.
 * Sua missão é implementar um código que, caso algum ingrediente acabe, todos os pratos que usam aquele ingrediente devem ser imediatamente removidos do painel, evitando clientes frustrados.
 
 #### 4.2 Implementação
 
-* 
+* Implemente as alterações que julgar necessárias para implementar a lógica do Painel.
+* Fique à vontade para criar classes ou alterar o arquivo `main.py`.
 
 #### 4.3 Testes
 
-* 
+* Caso tenha tempo, implemente testes para as novas classes ou métodos que você criou.
 
-#### 1.4 Commit
+#### 4.4 Commit
 
 * Faça commits sempre que achar que faz sentido. Porém não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
-* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
+* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 4"`
 
 #### 4.4 Requisitos obrigatórios:
 
-* 
+* Lógica implementada corretamente
+* Testes passando, caso existam.
 
 #### 4.5 As seguintes verificações serão feitas:
 
-* A classe está devidamente modularizada
+* As classes/métodos estão devidamente modularizados
 * Os métodos fazem uso das técnicas de Dict e Set vistos no módulo
 
 ---
