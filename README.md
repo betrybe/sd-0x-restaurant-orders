@@ -187,7 +187,7 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 
 ### Etapa 2: Análises contínuas
 
-#### 2.1 - Apresentação
+#### 2.1 Apresentação
 
 * A campanha de marketing foi um sucesso! A gerência agora deseja um sistema que mantenha um registro contínuo dessas informações.
 * Mais especificamente, desejam que o sistema permita a extração das seguintes informações a qualquer momento:
@@ -202,50 +202,53 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 
 #### 2.2 Implementação
 
+* O arquivo `src/main.py` faz a leitura do arquivo csv passado e envia a informação de cada pedido para as classes `TrackOrders` e para a classe `StockControl` que será implementada caso você realize as etapas bônus.
+* Após a leitura completa do arquivo csv, algumas informações são impressas na tela para que você observe o comportamento das suas classes.
+* Abra o arquivo `main.py` e complete a variável path com `orders_2.csv`.
+* Rode o arquivo `main.py`. Observe que as informções são impressas de maneira incompleta.
 * No arquivo `track_orders.py`, implemente a classe `TrackOrders`, contendo, **no mínimo**, os métodos abaixo:
 
 ```Python
 class TrackOrders:
   def add_new_order(self, costumer, order, day):
-    raise NotImplementedError
+    pass
 
   def get_most_ordered_dish_per_costumer(self, costumer):
-    raise NotImplementedError
+    pass
 
   def get_dish_quantity_per_costumer(self, costumer, order):
-    raise NotImplementedError
+    pass
 
   def get_never_ordered_per_costumer(self, costumer):
-    raise NotImplementedError
+    pass
 
   def get_busiest_day(self):
-    raise NotImplementedError
+    pass
 
   def get_least_busy_day(self):
-    raise NotImplementedError
+    pass
 ```
 
-* Implemente o construtor com as atributos que você achar necessários para que a classe funcione corretamente.
-* Sugestão: implemente um método por vez e garanta que o método funciona e passa nos testes antes de seguir para a próxima implementação. A cada novo método, faça as alterações necessárias.
 * Você é livre para criar os atributos e métodos necessários. Lembre-se de criar uma classe legível e bem modularizada.
-* Apesar dessa liberdade, lembre-se de não incorrer em otimização prematura. Ou seja, não implemente funcionalidades que ainda não são necessárias, nem preveja atributos do tipo "vai que um dia precisa".
+* Lembre-se de não incorrer em otimização prematura. Ou seja, não implemente funcionalidades que ainda não são necessárias, nem coloque atributos do tipo "vai que um dia precisa".
+* Rode o arquivo `main.py` para verificar o comportamento da sua classe.
 
 #### 2.3 Testes
 
-* Elabore uma suíte de testes que garanta, no mínimo, 90% de cobertura.
+* Elabore uma suíte de testes que garanta, no mínimo, 90% de cobertura da sua classes.
 * Implemente os testes no arquivo `test_track_orders.py`
 
 #### 2.4 Commit
 
 * Faça commits sempre que achar que faz sentido. Mas não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
-* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
+* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 2"`
 
-#### 2.4 Requisitos obrigatórios:
+#### 2.5 Requisitos obrigatórios:
 
 * Classe `TrackOrders` implementada e com todos os testes passando
 * Cobertura de testes de, pelo menos, 90%.
 
-#### 2.5 As seguintes verificações serão feitas:
+#### 2.6 As seguintes verificações serão feitas:
 
 * A classe está devidamente modularizada.
 * Os métodos fazem uso das técnicas de Dict e Set vistos no módulo.
@@ -253,24 +256,28 @@ class TrackOrders:
 
 ---
 
-### [Bônus parte 1] Etapa 3 - Controle de estoque
+### [Bônus parte 1] Etapa 3: Controle de estoque
 
-#### 3.1 - Apresentação
+#### 3.1 Apresentação
 
-* Atualmente o controle de estoque do ingredientes é feito no caderninho. Ao final da semana, uma pessoa conta quantas unidades de cada ingredientes ainda restam no estoque e anota quantos precisam ser comprados para completar o estoque mínimo de cada ingrediente
-* A lanchonete deseja automatizar esse controle: No final da semana, a gerência deseja imprimir uma lista de compras com a quantidade de cada ingrediente que deve ser comprado. 
+* Atualmente o controle de estoque de ingredientes é feito no caderninho. Ao final da semana, uma pessoa conta quantas unidades de cada ingredientes ainda restam no estoque e anota quantos precisam ser comprados para completar o estoque mínimo de cada ingrediente.
+* A lanchonete deseja automatizar esse controle: No final da semana, a gerência irá imprimir uma lista de compras com as respectivas quantidades. 
 
 #### 3.2 Implementação
 
-* No arquivo `stock_control.py` você deve implementar a classe `StockControl` que recebe a informação de um pedido e tem um método que retorna a lista de compras da semana.
+* No arquivo `stock_control.py` você deve implementar a classe `StockControl` que retorna a lista de compras da semana a partir da informação de cada.
+* É importante que a lista seja atualizada a cada pedido, e não apenas ao final de semana, pois a gerência quer a liberdade de imprimir a lista de compras a qualquer momento.
+* A estrutura básica da classe está demonstrada abaixo e já contém as informações dos ingredientes bem como o estoque mínimo de cada um.]
+* O método `get_shopping_list`deve retornar um Dict que mapeia o ingrediente para a quantidade a ser comprada.
 
 ```Python
 class StockControl:
   def __init__(self):
     self.ingredients = {
         'hamburguer': ['pao', 'hamburguer', 'queijo'],
-        'pizza': ['massa', 'queijo', 'molho'],
-        'misto-quente': ['pao', 'queijo', 'presunto'],
+        'pizza': ['massa', 'queijo', 'molho', 'tomate'],
+        'queijo-quente': ['pao', 'queijo', 'queijo'],'misto-quente': ['pao', 'queijo', 'presunto'],
+        'bauru': ['pao', 'queijo', 'presunto', 'tomate'],
         'coxinha': ['massa', 'frango'],
     }
   
@@ -278,42 +285,45 @@ class StockControl:
         'pao': 50,
         'hamburguer': 35,
         'queijo': 100,
-        'molho': 30,
-        'presunto': 20,
         'massa': 20,
+        'molho': 30,
+        'tomate': 35,
+        'presunto': 20,
         'frango': 10,
     }
   
   def add_new_order(self, costumer, order, _):
-    raise NotImplementedErrorse 
+    pass
 
   def get_shopping_list(self):
-    raise NotImplementedError
+    pass
 
 ```
-* Você pode implementar quantos métodos auxiliares e os atributos que julgar necessários para a boa modularização do seu código.
+
+* Utilize o arquivo `orders_2.csv`. O arquivo representa os pedidos feitos em uma semana típica e contém mais pedidos que o arquivo 1.
 * É garantido que os pedidos da semana não irão zerar nenhum dos estoques.
-* O arquivo `main.py` conecta as duas classes. Ele faz a leitura do arquivo `orders_1.csv` e envia as informações do pedido a ambas. Você pode visualizar o comportamento das suas duas classes rodando esse arquivo.
+
 
 #### 3.3 Testes
 
-* Utilize o arquivo `orders_1.csv` para verificar seu código.
-* Crie um teste para o método `get_shopping_list` para um cenário em que nenhum dos estoque acaba.
+* Crie testes para o método `get_shopping_list`.
+* Garanta que todos os ingredientes e pratos foram testados.
 
-#### 1.4 Commit
+#### 3.4 Commit
 
-* Faça commits sempre que achar que faz sentido. Porém não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
-* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
+* Não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
+* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 3"`
 
-#### 3.4 Requisitos obrigatórios:
+#### 3.5 Requisitos obrigatórios:
 
 * Classe `StockControl`implementada e com todos os testes passando.
-* Teste implementado do método `get_shopping_list`.
+* Testes implementados do método `get_shopping_list` com cobertura de, no mínimo, 90%.
 
-#### 3.5 As seguintes verificações serão feitas:
+#### 3.6 As seguintes verificações serão feitas:
 
-* A classe está devidamente modularizada
+* A classe está devidamente modularizada e legível.
 * Os métodos fazem uso das técnicas de Dict e Set vistos no módulo
+* Os métodos atingem complexidade ótima (geralmente O(1) ou O(n) em alguns métodos que usam Set).
 
 ---
 
@@ -321,7 +331,7 @@ class StockControl:
 
 #### 4.1 - Apresentação
 
-* As campanhas de marketing atraíram muitos novos clientes para a lanchonete. Se antes os estoques mínimos eram sempre suficientes para uma seman, agora não são mais...
+* As campanhas de marketing atraíram muitos novos clientes para a lanchonete. Se antes os estoques mínimos eram sempre suficientes para uma semana, agora não são mais...
 * O cardápio do lanchonete é mostrado em um painel eletrônico de forma sempre atualizada. Suponha os seguintes estoques:
   * Pao: 1
   * Queijo: 5

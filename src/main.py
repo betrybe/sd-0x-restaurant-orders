@@ -16,7 +16,7 @@ def stock_control(costumer, order, day):
 
 def main ():
     topic = 'order'
-    path = 'orders.csv'
+    path = 
     
     tracker = TrackOrders()
     control = StockControl()
