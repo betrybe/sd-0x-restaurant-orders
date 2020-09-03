@@ -185,23 +185,24 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 
 ---
 
-### Etapa 2 - Análises contínuas
+### Etapa 2: Análises contínuas
 
 #### 2.1 - Apresentação
 
 * A campanha de marketing foi um sucesso! A gerência agora deseja um sistema que mantenha um registro contínuo dessas informações.
-* Mais especificamente, desejam que o sistema tenha controles que permitam a extração das seguintes informações:
+* Mais especificamente, desejam que o sistema permita a extração das seguintes informações a qualquer momento:
   * Prato favorito por cliente
   * Quanto de cada prato cada cliente já pediu
   * Pratos nunca pedidos por cada cliente
   * Dia mais movimentado
   * Dia menos movimentado
 
-* Para isso, você precisará implemetar uma classe que entregue as informações acima.
+* Para isso, você deverá implementar uma classe que entregue as informações acima.
+* Você modularizou seu código da etapa 1? Se sim, essa etapa será bem rápida :)
 
 #### 2.2 Implementação
 
-* No arquivo `track_orders.py`, implemente a classe TrackOrders, contendo, **no mínimo**, os métodos abaixo:
+* No arquivo `track_orders.py`, implemente a classe `TrackOrders`, contendo, **no mínimo**, os métodos abaixo:
 
 ```Python
 class TrackOrders:
@@ -227,27 +228,28 @@ class TrackOrders:
 * Implemente o construtor com as atributos que você achar necessários para que a classe funcione corretamente.
 * Sugestão: implemente um método por vez e garanta que o método funciona e passa nos testes antes de seguir para a próxima implementação. A cada novo método, faça as alterações necessárias.
 * Você é livre para criar os atributos e métodos necessários. Lembre-se de criar uma classe legível e bem modularizada.
+* Apesar dessa liberdade, lembre-se de não incorrer em otimização prematura. Ou seja, não implemente funcionalidades que ainda não são necessárias, nem preveja atributos do tipo "vai que um dia precisa".
 
 #### 2.3 Testes
 
+* Elabore uma suíte de testes que garanta, no mínimo, 90% de cobertura.
 * Implemente os testes no arquivo `test_track_orders.py`
-* Garanta, no mínimo, 90% de cobertura.
 
-#### 1.4 Commit
+#### 2.4 Commit
 
-* Faça commits sempre que achar que faz sentido. Porém não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
+* Faça commits sempre que achar que faz sentido. Mas não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
 * **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
 
 #### 2.4 Requisitos obrigatórios:
 
 * Classe `TrackOrders` implementada e com todos os testes passando
-* Cobertura de testes de, pelo menos, 90%
+* Cobertura de testes de, pelo menos, 90%.
 
 #### 2.5 As seguintes verificações serão feitas:
 
-* A classe está devidamente modularizada
-* Os métodos fazem uso das técnicas de Dict e Set vistos no módulo
-* Os métodos têm complexidade de, no máximo, O(n) e O(1) sempre que possível.
+* A classe está devidamente modularizada.
+* Os métodos fazem uso das técnicas de Dict e Set vistos no módulo.
+* Os métodos atingem complexidade ótima (geralmente O(1) ou O(n) em alguns métodos que usam Set).
 
 ---
 
