@@ -65,7 +65,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ## Entregáveis
 
-Para entregar o seu projeto você deverá criar um _Pull Request_ neste repositório. Este _Pull Request_ deverá conter os arquivos `analyse_orders.py` e `test_analyse_orders.py`,  que conterão seu código `Python` e seus testes, respectivamente.
+Para entregar o seu projeto você deverá criar um _Pull Request_ neste repositório. Este _Pull Request_ deverá conter os arquivos do diretório src dvidamente preenchidos de acordo com as instruções, que conterão seu código `Python` e seus testes, respectivamente.
 
 ### ⚠️ É importante que seus arquivos tenham exatamente estes nomes! ⚠️
 
@@ -77,24 +77,23 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
 
 ## O que deverá ser desenvolvido
 
-A lanchonete Pão Na Chapa atualmente possui um sistema de faturamento dos pedidos dos clientes que salva a nome da pessoa junto com o pedido realizado, bem como dia do atendimento.
+A lanchonete Pão Na Chapa atualmente possui um sistema de faturamento dos pedidos dos clientes que salva a nome da pessoa junto com o pedido realizado, bem como dia do atendimento. O projeto consiste de ajudar a lanchonete a melhorar esse sistema para que ele possibilite extração de relatórios e num segundo momento, a controlar seu estoque.
 
-A lanchonete quer promover ações de marketing, mas para isso a agência de publicidade precisa das informações abaixo:
-
-* Qual o prato mais pedido por 'maria'?
-* Quantas vezes 'arnaldo' pediu 'hamburguer'?
-* Quais pratos 'joao' nunca pediu?
-* Quais dias 'joao' nunca foi na lanchonete?
-
-O seu projeto consiste em implementar um código que leia esses logs de compras anteriores e retorne cada uma das informações acima de maneira detalhada para que a gerência possa emitir emails de promoções direcionadas. A segunda parte do projeto será explicada após você concluir a primeira.
+O projeto está estruturado em duas etapas obrigatórias, e a tarefa bônus, também em duas etapas, totalizando 4. Foque nas etapas obrigatórias e com o mesmo cuidado que teria com um cliente real: código limpo, com boa manutenção e legibilidade. As tarefas não são complexas nem longas. Por isso, queremos ver um código bonito e testes bem pensados.
 
 ---
 
 ## Desenvolvimento e testes
 
-No diretório `src/` você vai encontrar os arquivos onde devem ser implementados todas as classes e métodos que você considerar importantes para resolver o projeto. Os testes devem ser implementados no arquivo no diretório `tests/`.
+**Estrutura do repositório**  
 
-Para executar os testes, lembre-se de primeiro **criar e ativar o ambiente virtual**, além de também instalar as dependências do projeto. Isso pode ser feito através dos comandos:
+* No diretório `src/` você vai encontrar os arquivos onde devem ser implementadas todas as classes e métodos que você considerar importantes para resolver cada etapa do projeto. 
+* No diretório `data/` você encontra os arquivos de log que deverão ser utilizados em cada etapa.
+* Os testes devem ser implementados nos arquivos do diretório `tests/`.
+
+**Testes**  
+
+* Para executar os testes, lembre-se de primeiro **criar e ativar o ambiente virtual**, além de também instalar as dependências do projeto. Isso pode ser feito através dos comandos:
 
 ```bash
 $ python3 -m venv .venv
@@ -104,15 +103,17 @@ $ source .venv/bin/activate
 $ python3 -m pip install -r requirements.txt
 ```
 
-O arquivo `requirements.txt` contém todos as dependências que serão utilizadas no projeto, ele está agindo como se fosse um `package.json` de um projeto `Node.js`. Com as dependências já instaladas, para executar os testes basta usar o comando:
+**Instalação de Dependências**  
+* O arquivo `requirements.txt` contém todos as dependências que serão utilizadas no projeto, ele está agindo como se fosse um `package.json` de um projeto `Node.js`. Com as dependências já instaladas, para executar os testes basta usar o comando:
 
 ```bash
 $ python3 -m pytest
 ```
 
-Se quiser saber mais sobre a instalação de dependências com `pip`, veja esse artigo: https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1
+* Se quiser saber mais sobre a instalação de dependências com `pip`, veja esse artigo: https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1
 
-Para verificar se você está seguindo o guia de estilo do Python corretamente, execute o comando:
+**Estilo**  
+* Para verificar se você está seguindo o guia de estilo do Python corretamente, execute o comando:
 
 ```bash
 $ python3 -m flake8
@@ -122,18 +123,26 @@ $ python3 -m flake8
 
 ## Orientações para execução do projeto
 
-### Etapa 1 - Campanha de publicidade
+### Etapa 1: Campanha de publicidade
 
-#### 1.1 - Apresentação
+#### 1.1 Apresentação
 
-* Utilize os arquivo `orders_1.csv`
-* O histórico de pedidos é um arquivo csv com as informações de `cliente,pedido,dia` um por linha e sem nome das colunas (a primeira linha já é um pedido)
+A lanchonete quer promover ações de marketing e, para isso, a agência de publicidade precisa exatamente das informações abaixo:
+
+  1. Qual o prato mais pedido por 'maria'?
+  2. Quantas vezes 'arnaldo' pediu 'hamburguer'?
+  3. Quais pratos 'joao' nunca pediu?
+  4. Quais dias 'joao' nunca foi na lanchonete?
+
+**Dados**  
+
+* O atual sistema guarda os logs de todos os pedidos feitos em um arquivo csv no formato `cliente,pedido,dia` um por linha e sem nome das colunas (a primeira linha já é um pedido)
+* O log a ser utilizado é o arquivo `data/orders_1.csv`
 * Todas as informações são strings com letras minúsculas
 * O histórico contém pedidos feitos em todos os dias da semana e de todos os pratos que a lanchonete oferece. Ou seja, é possível saber o cardápio completo.
 * Os dias da semana estão no formato "...-feira", "sabado" ou "domingo".
-* A lanchonete abre todos os dias da semana.
 
-#### 1.2 - Implementação
+#### 1.2 Implementação
 
 * No arquivo `analyse_log.py`, escreva uma função que responda às seguintes perguntas abaixo:
   1. Qual o prato mais pedido por 'maria'?
@@ -141,27 +150,38 @@ $ python3 -m flake8
   3. Quais pratos 'joao' nunca pediu?
   4. Quais dias 'joao' nunca foi na lanchonete?
 
-* As respostas devem ser impressas na tela. Fique à vontade com o texto da frase que será mostrada.
+* As respostas devem ser salvas no arquivo `data/mkt_campaign.txt` na mesma ordem que acima.
+* Assinatura da função:
+  ```Python
+  def analyse_log(path_to_file)
+  ```
+* Retorno: nenhum
 
 #### 1.3 Testes
 
-* **NÃO** é necessário implementar testes para a primeira etapa
-* Verifique se a saída do seu código apresenta as saídas corretas:
-  * O prato mais pedido de Maria é: [todo]
-  * Arnaldo comeu [todo] hamburguers
-  * Joao nunca pediu: [todo]
-  * Joao nunca foi na lanchonete nos dias [todo]
+* No arquivo `tests/test_analyse_log.py`, implemente um teste que verifique a corretude da sua saída:
+* Saída correta:
+  * [todo] (O prato mais pedido de Maria)
+  * [todo] (Quantos hamburguers Arnaldo comeu)
+  * [todo] (Pratos que Joao nunca pediu)
+  * [todo] (Dias que Joao nunca foi na lanchonete
 
-#### 1.4 - Requisitos obrigatórios
+#### 1.4 Commit
 
-* No arquivo analyse_log.py deve haver pelo menos um função que imprima na tela os valores corretos
-* Não é necessária a implementação de testes para a primeira etapa
+* Faça commits sempre que achar que faz sentido. Porém não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
+* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
 
-#### 1.5 - As seguintes verificações serão feitas:
+#### 1.5 Requisitos obrigatórios
 
-* Corretude das saídas do código
-* Legibilidade do código
-* Utilização dos conceitos vistos no módulo
+* No arquivo analyse_log.py deve estar implementada a função `def analyse_log(path_to_file)`. 
+* A função deve realizar a leitura do log e salvar um arquivo txt com as informações solicitadas.
+* O teste deve estar implementados no arquivo `tests/test_analyse_log.py`.
+
+#### 1.6 As seguintes verificações serão feitas:
+
+* Código implementado e passando no teste.
+* código legível e modularizado, quando for o caso.
+* Utilização correta dos conceitos vistos no módulo.
 
 ---
 
@@ -212,6 +232,11 @@ class TrackOrders:
 
 * Implemente os testes no arquivo `test_track_orders.py`
 * Garanta, no mínimo, 90% de cobertura.
+
+#### 1.4 Commit
+
+* Faça commits sempre que achar que faz sentido. Porém não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
+* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
 
 #### 2.4 Requisitos obrigatórios:
 
@@ -273,6 +298,11 @@ class StockControl:
 * Utilize o arquivo `orders_1.csv` para verificar seu código.
 * Crie um teste para o método `get_shopping_list` para um cenário em que nenhum dos estoque acaba.
 
+#### 1.4 Commit
+
+* Faça commits sempre que achar que faz sentido. Porém não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
+* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
+
 #### 3.4 Requisitos obrigatórios:
 
 * Classe `StockControl`implementada e com todos os testes passando.
@@ -304,6 +334,11 @@ class StockControl:
 #### 4.3 Testes
 
 * 
+
+#### 1.4 Commit
+
+* Faça commits sempre que achar que faz sentido. Porém não se esqueça de realizar o commit obrigatório abaixo, pois facilitará a correção:
+* **Ao terminar a implementação e testes, faça um commit com a mensagem** `"Finished stage 1"`
 
 #### 4.4 Requisitos obrigatórios:
 
