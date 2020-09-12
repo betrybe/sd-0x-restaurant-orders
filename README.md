@@ -77,9 +77,9 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
 
 ## O que deverá ser desenvolvido
 
-A lanchonete Pão Na Chapa atualmente possui um sistema de faturamento dos pedidos dos clientes que salva a nome da pessoa junto com o pedido realizado, bem como dia do atendimento. O projeto consiste de ajudar a lanchonete a melhorar esse sistema para que ele possibilite extração de relatórios e num segundo momento, a controlar seu estoque.
+A lanchonete Pão Na Chapa atualmente possui um sistema de faturamento dos pedidos dos clientes que salva o nome da pessoa, o pedido realizado, e dia do atendimento (dia da semana). O projeto consiste de ajudar a lanchonete a melhorar esse sistema para que ele possibilite extração de relatórios e num segundo momento, a controlar seu estoque.
 
-O projeto está estruturado em duas etapas obrigatórias, e a tarefa bônus, também em duas etapas, totalizando 4. Foque nas etapas obrigatórias e com o mesmo cuidado que teria com um cliente real: código limpo, com boa manutenção e legibilidade. As tarefas não são complexas nem longas. Por isso, queremos ver um código bonito e testes bem pensados.
+O projeto está estruturado em duas etapas obrigatórias, e a tarefa bônus, também em duas etapas, totalizando 4. Foque nas etapas obrigatórias e com o mesmo cuidado que teria com um cliente real: código limpo, com boa manutenção e legibilidade.
 
 ---
 
