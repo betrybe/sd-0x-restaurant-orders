@@ -104,12 +104,8 @@ $ python3 -m pip install -r requirements.txt
 ```
 
 **Instalação de Dependências**  
-* O arquivo `requirements.txt` contém todos as dependências que serão utilizadas no projeto, ele está agindo como se fosse um `package.json` de um projeto `Node.js`. Com as dependências já instaladas, para executar os testes basta usar o comando:
 
-```bash
-$ python3 -m pytest
-```
-
+* O arquivo `requirements.txt` contém todos as dependências que serão utilizadas no projeto
 * Se quiser saber mais sobre a instalação de dependências com `pip`, veja esse artigo: https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1
 
 **Estilo**  
@@ -159,7 +155,7 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 
 #### 1.3 Testes
 
-* No arquivo `tests/test_analyse_log.py`, implemente um teste que verifique a corretude da sua saída:
+* No arquivo `tests/test_analyse_log.py`, implemente um teste que verifique a corretude da sua saída escrita no arquivo txt:
 * Saída correta:
   * [todo] (O prato mais pedido de Maria)
   * [todo] (Quantos hamburguers Arnaldo comeu)
@@ -181,7 +177,7 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 
 * Código implementado e passando no teste.
 * código legível e modularizado, quando for o caso.
-* Utilização correta dos conceitos vistos no módulo.
+* Utilização correta de Dict/Set vistos no módulo.
 
 ---
 
@@ -202,10 +198,18 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 
 #### 2.2 Implementação
 
-* O arquivo `src/main.py` faz a leitura do arquivo csv passado e envia a informação de cada pedido para as classes `TrackOrders` e para a classe `StockControl` que será implementada caso você realize as etapas bônus.
-* Após a leitura completa do arquivo csv, algumas informações são impressas na tela para que você observe o comportamento das suas classes.
+**Arquivos**  
+* O arquivo `track_orders.py` é onde você implementará a classe TrackeOrders, que soluciona a etapa 2.
+* O arquivo `inventory_control.py` é onde você implementará a classe InventoryControl, que soluciona a etapa bônus.
+* O arquivo `src/main.py` faz a leitura do arquivo csv especificado e envia a informação de cada pedido para as classes `TrackOrders` e para a classe `InventoryControl` ao mesmo tempo.
+* Ainda no arquivo `src/main.py`, ppós a leitura completa do arquivo csv, algumas informações são impressas na tela para que você observe o comportamento das suas classes.
+
+**Teste o comportamento do arquivo `main.py`**  
 * Abra o arquivo `main.py` e complete a variável path com `orders_2.csv`.
-* Rode o arquivo `main.py`. Observe que as informções são impressas de maneira incompleta.
+* Rode o arquivo `main.py`. 5 linhas de `None` devem ser impressas. Isso porque as funções não estão ainda devidamente implementadas.
+
+**Implemente a solução**  
+
 * No arquivo `track_orders.py`, implemente a classe `TrackOrders`, contendo, **no mínimo**, os métodos abaixo:
 
 ```Python
@@ -236,7 +240,7 @@ class TrackOrders:
 #### 2.3 Testes
 
 * Elabore uma suíte de testes que garanta, no mínimo, 90% de cobertura da sua classes.
-* Implemente os testes no arquivo `test_track_orders.py`
+* Implemente os testes no arquivo `test_track_orders.py`.
 
 #### 2.4 Commit
 
@@ -265,7 +269,7 @@ class TrackOrders:
 
 #### 3.2 Implementação
 
-* No arquivo `stock_control.py` você deve implementar a classe `StockControl` que retorna a lista de compras da semana a partir da informação de cada.
+* No arquivo `inventory_control.py` você deve implementar a classe `InventoryControl` que retorna a lista de compras da semana a partir da informação de cada.
 * É importante que a lista seja atualizada a cada pedido, e não apenas ao final de semana, pois a gerência quer a liberdade de imprimir a lista de compras a qualquer momento.
 * A estrutura básica da classe está demonstrada abaixo e já contém as informações dos ingredientes bem como o estoque mínimo de cada um.]
 * O método `get_shopping_list`deve retornar um Dict que mapeia o ingrediente para a quantidade a ser comprada.
@@ -303,7 +307,6 @@ class StockControl:
 * Utilize o arquivo `orders_2.csv`. O arquivo representa os pedidos feitos em uma semana típica e contém mais pedidos que o arquivo 1.
 * É garantido que os pedidos da semana não irão zerar nenhum dos estoques.
 
-
 #### 3.3 Testes
 
 * Crie testes para o método `get_shopping_list`.
@@ -332,21 +335,30 @@ class StockControl:
 #### 4.1 Apresentação
 
 * As campanhas de marketing atraíram muitos novos clientes para a lanchonete. Se antes os estoques mínimos eram sempre suficientes para uma semana, agora não são mais...
-* O cardápio do lanchonete é mostrado em um painel eletrônico de forma sempre atualizada. Suponha os seguintes estoques:
+* Suponha os seguintes estoques:
   * Pao: 1
   * Queijo: 5
   * Presunto: 3
 * Se a pessoa pedir um misto-quente, será possível atendê-lo. Porém o pão irá acabar. Se a próxima pessoa pedir hamburguer, não será possível atendê-lo.
-* Sua missão é implementar um código que, caso algum ingrediente acabe, todos os pratos que usam aquele ingrediente devem ser imediatamente removidos do painel, evitando clientes frustrados.
+* Sua missão é implementar um código que, caso algum ingrediente acabe, todos os pratos que usam aquele ingrediente devem ser imediatamente removidos do cardápio eletrônico, evitando clientes frustrados.
 
 #### 4.2 Implementação
 
-* Implemente as alterações que julgar necessárias para implementar a lógica do Painel.
-* Fique à vontade para criar classes ou alterar o arquivo `main.py`.
+* **Você realizou o commit da fase anterior? Isso é importante pois agora você vai alterar o seu código**
+
+* Na classe `InventoryControl` implemente um novo método que retorne um conjunto com todos os pratos diponíveis, ou seja, que ainda tem ingredientes suficientes.
+  
+      Assinatura: def get_available_dishes()
+      Retorno: um conjunto de pratos que ainda têm ingredientes disponíveis
+
+* Altere o arquivo `main.py`:
+  * A cada pedido recebido, inclua uma chamada para o seu novo método.
+  * Caso o prato que a pessoa solicitou não esteja disponível, não envie as informações do pedido para as demais classes.
+
 
 #### 4.3 Testes
 
-* Caso tenha tempo, implemente testes para as novas classes ou métodos que você criou.
+* Implemente testes para o novo método.
 
 #### 4.4 Commit
 
@@ -355,8 +367,9 @@ class StockControl:
 
 #### 4.4 Requisitos obrigatórios:
 
-* Lógica implementada corretamente
-* Testes passando, caso existam.
+* Novo método implementado e funcionando corretamente.
+* Alteração na main produz o efeito esperado.
+* Testes passando.
 
 #### 4.5 As seguintes verificações serão feitas:
 

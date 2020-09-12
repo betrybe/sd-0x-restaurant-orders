@@ -1,4 +1,4 @@
-class StockControl:
+class InventoryControl:
     def __init__(self):
         self.ingredients = {
             'hamburguer': ['pao', 'hamburguer', 'queijo'],
@@ -18,7 +18,7 @@ class StockControl:
         }
     
     def add_new_order(self, costumer, order, day):
-        raise NotImplementedError
+        pass
 
     def get_quantities_to_buy(self):
-        raise NotImplementedError
+        pass
