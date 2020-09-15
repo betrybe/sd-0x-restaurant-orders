@@ -157,10 +157,10 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 
 * No arquivo `tests/test_analyse_log.py`, implemente um teste que verifique a corretude da sua saída escrita no arquivo txt:
 * Saída correta:
-  * [todo] (O prato mais pedido de Maria)
-  * [todo] (Quantos hamburguers Arnaldo comeu)
-  * [todo] (Pratos que Joao nunca pediu)
-  * [todo] (Dias que Joao nunca foi na lanchonete
+  * hamburguer
+  * 0
+  * {'pizza', 'coxinha', 'misto-quente'}
+  * {'sabado', 'segunda-feira'}
 
 #### 1.4 Commit
 
