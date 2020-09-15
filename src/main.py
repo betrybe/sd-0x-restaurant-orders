@@ -4,19 +4,11 @@ from stock_control import StockControl
 from track_orders import TrackOrders
 
 def print_info(tracker, control):
-    # Qual o prato mais pedido por Maria?
+def print_info(tracker, control):
     print(tracker.get_most_ordered_dish_per_costumer('maria'))
-
-    # Quantas vezes Arnaldo pediu hamburguer?
     print(tracker.get_order_frequency_per_costumer('arnaldo', 'hamburguer'))
-    
-    # Quais pratos Joao nunca pediu?
     print(tracker.get_never_ordered_per_costumer('joao'))
-
-    # Quais dias Joao nunca foi na lanchonete?
     print(tracker.get_days_never_visited_per_costumer('joao'))
-
-    # Lista de compras
     print(control.get_quantities_to_buy())
 
 def main ():

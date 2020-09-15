@@ -205,7 +205,7 @@ A lanchonete quer promover ações de marketing e, para isso, a agência de publ
 * Ainda no arquivo `src/main.py`, ppós a leitura completa do arquivo csv, algumas informações são impressas na tela para que você observe o comportamento das suas classes.
 
 **Teste o comportamento do arquivo `main.py`**  
-* Abra o arquivo `main.py` e complete a variável path com `orders_2.csv`.
+* Abra o arquivo `main.py` e complete a variável path com `orders.csv`.
 * Rode o arquivo `main.py`. 5 linhas de `None` devem ser impressas. Isso porque as funções não estão ainda devidamente implementadas.
 
 **Implemente a solução**  
@@ -304,7 +304,7 @@ class StockControl:
 
 ```
 
-* Utilize o arquivo `orders_2.csv`. O arquivo representa os pedidos feitos em uma semana típica e contém mais pedidos que o arquivo 1.
+* Utilize o arquivo mesmo arquivo `orders_1.csv`.
 * É garantido que os pedidos da semana não irão zerar nenhum dos estoques.
 
 #### 3.3 Testes
@@ -345,7 +345,7 @@ class StockControl:
 #### 4.2 Implementação
 
 * **Você realizou o commit da fase anterior? Isso é importante pois agora você vai alterar o seu código**
-
+* Utilize o arquivo `orders_2.csv`
 * Na classe `InventoryControl` implemente um novo método que retorne um conjunto com todos os pratos diponíveis, ou seja, que ainda tem ingredientes suficientes.
   
       Assinatura: def get_available_dishes()
