@@ -6,8 +6,8 @@ class InventoryControl:
             'misto-quente': ['pao', 'queijo', 'presunto'],
             'coxinha': ['massa', 'frango'],
         }
-    
-        self.minimum_stock = {
+
+        self.minimum_inventory = {
             'pao': 50,
             'hamburguer': 35,
             'queijo': 100,
@@ -16,7 +16,7 @@ class InventoryControl:
             'massa': 20,
             'frango': 10,
         }
-    
+
     def add_new_order(self, costumer, order, day):
         pass
 
