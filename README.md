@@ -340,7 +340,7 @@ class InventoryControl:
 
 - Implemente os testes no arquivo `test_inventory_control.py`.
 
-#### 7 - Estoque pode acabar
+### 7 - Estoque pode acabar
 
 As campanhas de marketing atraíram muitos novos clientes para a lanchonete. Se antes os estoques mínimos eram sempre suficientes para uma semana, agora não são mais...
 
