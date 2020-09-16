@@ -3,7 +3,7 @@ from pubsub import pub
 from stock_control import StockControl
 from track_orders import TrackOrders
 
-def print_info(tracker, control):
+
 def print_info(tracker, control):
     print(tracker.get_most_ordered_dish_per_costumer('maria'))
     print(tracker.get_order_frequency_per_costumer('arnaldo', 'hamburguer'))
@@ -11,10 +11,11 @@ def print_info(tracker, control):
     print(tracker.get_days_never_visited_per_costumer('joao'))
     print(control.get_quantities_to_buy())
 
-def main ():
+
+def main():
     topic = 'order'
-    path = "../data/orders.csv"
-    
+    path = ""
+
     tracker = TrackOrders()
     control = StockControl()
     subs = [tracker.add_new_order, control.add_new_order]
@@ -28,6 +29,7 @@ def main ():
             pub.sendMessage(topic, costumer=costumer, order=order, day=day)
 
     print_info(tracker, control)
-    
+
+
 if __name__ == "__main__":
     main()
