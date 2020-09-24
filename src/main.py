@@ -1,6 +1,6 @@
 import csv
 from pubsub import pub
-from stock_control import StockControl
+from inventory_control import InventoryControl
 from track_orders import TrackOrders
 
 
