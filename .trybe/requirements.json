@@ -1,8 +1,16 @@
 {
   "requirements": [
     {
-      "identifier": "",
-      "description": "",
+      "identifier": "test_validar_conteudo_do_arquivo_gerado",
+      "description": "Será validado que ao enviar arquivo irá preencher corretamente",
+      "bonus": false
+    },    {
+      "identifier": "test_validar_arquivo_inexistente",
+      "description": "Será validado que ao enviar um arquivo inexistente irá retornar um erro",
+      "bonus": false
+    },    {
+      "identifier": "test_validar_arquivo_com_extensao_invalida",
+      "description": "Será validado que ao enviar um arquivo com extensão inválida irá retornar um erro",
       "bonus": false
     }
   ]
