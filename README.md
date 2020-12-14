@@ -123,7 +123,7 @@ $ python3 -m flake8
 
 ## Requisitos obrigatórios:
 
-### 1 - Campanha de publicidade
+### 1 - Campanha de publicidade, implemente um método chamado `analyse_log.py` que gere informações de uma lanchonete.
 
 A lanchonete quer promover ações de marketing e, para isso, a agência de publicidade precisa exatamente das informações abaixo:
 
@@ -162,37 +162,33 @@ def analyse_log(path_to_file):
     # Código vem aqui
 ```
 
-##### As seguintes verificações serão feitas:
+**Saída correta:**
+
+```
+hamburguer;
+
+0;
+
+{'pizza', 'coxinha', 'misto-quente'};
+
+{'sabado', 'segunda-feira'}
+```
 
 - No arquivo analyse_log.py deve estar implementada a função `def analyse_log(path_to_file)`;
 
 - A função deve realizar a leitura do `log` e salvar em um arquivo `txt` as informações solicitadas;
 
-- O teste deve estar implementados no arquivo `tests/test_analyse_log.py`;
-
 - Utilização correta de `Dict/Set`, vistos no módulo;
 
 - Código legível e modularizado, quando for o caso.
 
-### 2 - Teste do método `analyse_log()`
-
-No arquivo `tests/test_analyse_log.py`, implemente um teste que verifique se a saída da função, escrita no arquivo `txt`, está correta.
-
-**Saída correta:**
-
-- hamburguer;
-
-- 0;
-
-- {'pizza', 'coxinha', 'misto-quente'};
-
-- {'sabado', 'segunda-feira'}
-
 ##### As seguintes verificações serão feitas:
 
-- Testes implementados do método `get_shopping_list` com cobertura de, no mínimo, 90%.
+Será validado que ao enviar arquivo irá preencher corretamente
 
-- Implemente o teste no arquivo `test_analyse_log.py`.
+Será validado que ao enviar um arquivo inexistente irá retornar um erro
+
+Será validado que ao enviar um arquivo com extensão inválida irá retornar um erro
 
 ### 3 - Análises contínuas
 
