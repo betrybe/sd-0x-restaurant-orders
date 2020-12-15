@@ -1,6 +1,6 @@
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-v -s --continue-on-collection-errors"
+addopts = "-v"
 testpaths = ["tests",]
 
 [tool.black]
