@@ -158,7 +158,7 @@ A função não retornará nada! A função deve apenas salvar as respostas no a
 **Assinatura da função:**
 
 ```python
-def analyse_log(path_to_file):
+def analyze_log(path_to_file):
     # Código vem aqui
 ```
 
@@ -228,7 +228,7 @@ No arquivo `track_orders.py`, implemente a classe `TrackOrders`, contendo, **no 
 
 ```python
 class TrackOrders:
-    # aquideve expos a quantidade de estoque 
+    # aqui deve expor a quantidade de estoque 
     def __len__(self):
       pass
 
@@ -263,19 +263,21 @@ class TrackOrders:
 
 ##### As seguintes verificações serão feitas:
 
+- Instanciar a classe `TrackOrders` pela primeira vez deve ter a quantiade de pedidos igual á zero.
 
+- Executar o metodo `add_new_order` deve adicionar um pedido.
 
+- Executar o método `get_most_ordered_dish_per_costumer` irá retornar o prato mais pedido.
 
+- Executar o método `get_never_ordered_per_costumer` irá retornar o pedido que o cliente nunca fez.
 
+- Executar o método `get_days_never_visited_per_costumer` irá retornar o dias que o cliente nunca visitou.
 
+- Executar o método `get_busiest_day` irá retornar o dia mais movimentado.
 
+- Executar o método `get_least_busy_day` irá retornar o dia menos movimentado.
 
 ---
-
-
-
-
-
 
 ## Requisitos bônus:
 

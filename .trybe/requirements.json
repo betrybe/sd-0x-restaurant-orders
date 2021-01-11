@@ -14,6 +14,58 @@
       "identifier": "test_validar_arquivo_com_extensao_invalida",
       "description": "Executar o método `analyse_log` com uma extensão inválida deverá retornar um erro",
       "bonus": false
+    },
+    {
+      "identifier": "test_validar_classe_inicia_com_len_0",
+      "description": "Instanciar a classe `TrackOrders` pela primeira vez deve ter a quantiade de pedidos igual á zero",
+      "bonus": false
+    },
+    {
+      "identifier": "test_validar_adicionar_pedido",
+      "description": "Executar o método `add_new_order` deve adicionar um pedido",
+      "bonus": false
+    },
+    {
+      "identifier": "test_validar_prato_mais_pedido",
+      "description": "Executar o método `get_most_ordered_dish_per_costumer` irá retornar o prato mais pedido",
+      "bonus": false
     }
+    ,
+    {
+      "identifier": "test_validar_pedido_nunca_feito_pelo_cliente",
+      "description": "Executar o método `get_never_ordered_per_costumer` irá retornar o pedido que o cliente nunca fez",
+      "bonus": false
+    }
+    ,
+    {
+      "identifier": "test_validar_dia_que_nunca_foi_feito_pedido",
+      "description": "Executar o método `get_days_never_visited_per_costumer` irá retornar o dias que o cliente nunca visitou",
+      "bonus": false
+    }
+    ,
+    {
+      "identifier": "teste_validar_dia_mais_movimentado",
+      "description": "Executar o método `get_busiest_day` irá retornar o dia mais movimentado",
+      "bonus": false
+    }
+    ,
+    {
+      "identifier": "teste_validar_dia_menos_movimentado",
+      "description": "Executar o método `get_least_busy_day` irá retornar o dia menos movimentado",
+      "bonus": false
+    }
+    ,
+    {
+      "identifier": "",
+      "description": "",
+      "bonus": false
+    }
+    ,
+    {
+      "identifier": "",
+      "description": "",
+      "bonus": false
+    }
+    
   ]
 }
