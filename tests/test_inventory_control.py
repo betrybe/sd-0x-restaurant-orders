@@ -6,13 +6,16 @@ def teste_validar_atualizou_a_quantidade_em_estoque():
     inventory.add_new_order("jorge", "hamburguer", "terça-feira")
     inventory.add_new_order("jorge", "hamburguer", "terça-feira")
     hamburguer = inventory.get_shopping_list()
-    assert  hamburguer.get('pao') == 2
-    assert  hamburguer.get('carne') == 2
-    assert  hamburguer.get('queijo') == 2
-    assert  hamburguer.get('molho') == 0
-    assert  hamburguer.get('presunto') == 0
-    assert  hamburguer.get('massa') == 0
-    assert  hamburguer.get('frango') == 0
+    total_ingredients = {
+        "pao": 2,
+        "carne": 2,
+        "queijo": 2,
+        "molho": 0,
+        "presunto": 0,
+        "massa": 0,
+        "frango": 0,
+    }
+    assert hamburguer == total_ingredients
 
 
 def teste_validar_comprar_todo_estoque_de_hamburguer():
@@ -22,13 +25,17 @@ def teste_validar_comprar_todo_estoque_de_hamburguer():
         ingredients.add_new_order("jorge", "hamburguer", "terça-feira")
         count += 1
     hamburguer = ingredients.get_shopping_list()
-    assert  hamburguer.get('pao') == 50
-    assert  hamburguer.get('carne') == 50
-    assert  hamburguer.get('queijo') == 50
-    assert  hamburguer.get('molho') == 0
-    assert  hamburguer.get('presunto') == 0
-    assert  hamburguer.get('massa') == 0
-    assert  hamburguer.get('frango') == 0
+    total_ingredients = {
+        "pao": 50,
+        "carne": 50,
+        "queijo": 50,
+        "molho": 0,
+        "presunto": 0,
+        "massa": 1,
+        "frango": 0,
+    }
+    assert hamburguer == total_ingredients
+
 
 def teste_validar_ingrediente_compartilhados():
     ingredients = InventoryControl()
@@ -38,10 +45,13 @@ def teste_validar_ingrediente_compartilhados():
         ingredients.add_new_order("maria", "pizza", "terça-feira")
         count += 1
     hamburguer_pizza = ingredients.get_shopping_list()
-    assert  hamburguer_pizza.get('pao') == 50
-    assert  hamburguer_pizza.get('carne') == 50
-    assert  hamburguer_pizza.get('queijo') == 100
-    assert  hamburguer_pizza.get('molho') == 50
-    assert  hamburguer_pizza.get('presunto') == 0
-    assert  hamburguer_pizza.get('massa') == 50
-    assert  hamburguer_pizza.get('frango') == 0
+    total_ingredients = {
+        "pao": 50,
+        "carne": 50,
+        "queijo": 100,
+        "molho": 50,
+        "presunto": 0,
+        "massa": 50,
+        "frango": 0,
+    }
+    assert hamburguer_pizza == total_ingredients
