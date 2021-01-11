@@ -22,7 +22,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 3. Instale as dependências
 
-- `python3 -m pip install -r requirements.txt`
+- `python3 -m pip install -r dev-requirements.txt`
 
 4. Crie uma branch a partir da branch `master`
 
@@ -102,12 +102,12 @@ $ python3 -m venv .venv
 
 $ source .venv/bin/activate
 
-$ python3 -m pip install -r requirements.txt
+$ python3 -m pip install -r dev-requirements.txt
 ```
 
 **Instalação de dependências**
 
-O arquivo `requirements.txt` contém todos as dependências que serão utilizadas no projeto
+O arquivo `dev-requirements.txt` contém todos as dependências que serão utilizadas no projeto
 
 Se quiser saber mais sobre a instalação de dependências com `pip`, veja esse [artigo.](https://medium.com/python-pandemonium/better-python-dependency-and-package-management-b5d8ea29dff1)
 
@@ -167,7 +167,7 @@ def analyse_log(path_to_file):
 ```
 hamburguer;
 
-0;
+1;
 
 {'pizza', 'coxinha', 'misto-quente'};
 
@@ -184,13 +184,13 @@ hamburguer;
 
 ##### As seguintes verificações serão feitas:
 
-Será validado que ao enviar arquivo irá preencher corretamente
+- Executar o método `analyse_log` deverá preencher corretamente os dados no arquivo `data/mkt_campaign.txt`
 
-Será validado que ao enviar um arquivo inexistente irá retornar um erro
+- Executar o método `analyse_log` com um arquivo inexistente deverá retornar um erro
 
-Será validado que ao enviar um arquivo com extensão inválida irá retornar um erro
+- Executar o método `analyse_log` com uma extensão inválida deverá retornar um erro
 
-### 3 - Análises contínuas
+### 2 - Análises contínuas, implemente a classe `TrackOrders` que gere informações contínuas de uma lanchonete.
 
 A campanha de marketing foi um sucesso! A gerência agora deseja um sistema que mantenha um registro contínuo dessas informações. Mais especificamente, desejam que o sistema permita a extração das seguintes informações a qualquer momento:
 
@@ -228,6 +228,10 @@ No arquivo `track_orders.py`, implemente a classe `TrackOrders`, contendo, **no 
 
 ```python
 class TrackOrders:
+    # aquideve expos a quantidade de estoque 
+    def __len__(self):
+      pass
+
     def add_new_order(self, costumer, order, day):
         pass
 
@@ -249,8 +253,6 @@ class TrackOrders:
 
 > Você é livre para criar os atributos e métodos necessários. Lembre-se de criar uma classe legível e bem modularizada. Lembre-se também de não incorrer em otimização prematura. Ou seja, não implemente funcionalidades que ainda não são necessárias, nem coloque atributos do tipo "vai que um dia precisa". Sempre rode o arquivo `main.py` para verificar o comportamento da sua classe.
 
-##### As seguintes verificações serão feitas:
-
 - Classe `TrackOrders` implementada;
 
 - A classe está devidamente modularizada;
@@ -259,19 +261,25 @@ class TrackOrders:
 
 - Os métodos atingem complexidade ótima (geralmente `O(1)` ou `O(n)`, em alguns métodos que usam `Set`).
 
-### 4 - Teste da classe `TrackOrders`
-
 ##### As seguintes verificações serão feitas:
 
-- Elabore uma suíte de testes que garanta, no mínimo, 90% de cobertura da sua classes;
 
-- Implemente os testes no arquivo `test_track_orders.py`.
+
+
+
+
+
 
 ---
 
+
+
+
+
+
 ## Requisitos bônus:
 
-### 5 - Controle de estoque
+### 3 - Controle de estoque
 
 Atualmente o controle de estoque de ingredientes é feito no caderninho. Ao final da semana, uma pessoa conta quantas unidades, de cada ingrediente, ainda restam no estoque e anota quantos precisam ser comprados, para completar o estoque mínimo de cada ingrediente.
 
@@ -293,7 +301,8 @@ class InventoryControl:
         self.ingredients = {
             'hamburguer': ['pao', 'hamburguer', 'queijo'],
             'pizza': ['massa', 'queijo', 'molho', 'tomate'],
-            'queijo-quente': ['pao', 'queijo', 'queijo'],'misto-quente': ['pao', 'queijo', 'presunto'],
+            'queijo-quente': ['pao', 'queijo', 'queijo'],
+            'misto-quente': ['pao', 'queijo', 'presunto'],
             'bauru': ['pao', 'queijo', 'presunto', 'tomate'],
             'coxinha': ['massa', 'frango'],
         }
@@ -308,35 +317,39 @@ class InventoryControl:
             'presunto': 20,
             'frango': 10,
         }
-  
-    def add_new_order(self, costumer, order, _):
+
+    # ajusta pra dizer sobre ignorar
+    def add_new_order(self, costumer, order, _day):
         pass
 
     def get_shopping_list(self):
         pass
 ```
 
-##### As seguintes verificações serão feitas:
-
 - Classe `InventoryControl` implementada;
 
 - A classe está devidamente modularizada;
 
-- Os métodos fazem uso das técnicas de `Dict` e `Set` vistos no módulo;
+- Garanta que todos os ingredientes e pratos foram testados;
+
+* Dicas:
+
+- Os métodos devem fazer uso das técnicas de `Dict` e `Set` vistos no módulo;
 
 - Os métodos atingem complexidade ótima (geralmente `O(1)` ou `O(n)`, em alguns métodos que usam `Set`).
 
-### 6 - Teste do método `get_shopping_list()`
-
 ##### As seguintes verificações serão feitas:
 
-- Testes implementados do método `get_shopping_list` com cobertura de, no mínimo, 90%;
+requisitos
 
-- Garanta que todos os ingredientes e pratos foram testados;
 
-- Implemente os testes no arquivo `test_inventory_control.py`.
 
-### 7 - Estoque pode acabar
+
+
+
+
+
+### 4 - Estoque pode acabar
 
 As campanhas de marketing atraíram muitos novos clientes para a lanchonete. Se antes os estoques mínimos eram sempre suficientes para uma semana, agora não são mais...
 
@@ -385,7 +398,7 @@ Altere o arquivo `main.py`:
 
 - Os métodos fazem uso das técnicas de `Dict` e `Set` vistos no módulo;
 
-### 8 - Teste do método `get_available_dishes()`
+########### 8 - Teste do método `get_available_dishes()`
 
 ##### As seguintes verificações serão feitas:
 

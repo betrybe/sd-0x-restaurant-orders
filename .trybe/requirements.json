@@ -2,15 +2,17 @@
   "requirements": [
     {
       "identifier": "test_validar_conteudo_do_arquivo_gerado",
-      "description": "Será validado que ao enviar arquivo irá preencher corretamente",
+      "description": "Executar o método `analyse_log` deverá preencher corretamente os dados no arquivo `data/mkt_campaign.txt`",
       "bonus": false
-    },    {
+    },    
+    {
       "identifier": "test_validar_arquivo_inexistente",
-      "description": "Será validado que ao enviar um arquivo inexistente irá retornar um erro",
+      "description": "Executar o método `analyse_log` com um arquivo inexistente deverá retornar um erro",
       "bonus": false
-    },    {
+    },
+    {
       "identifier": "test_validar_arquivo_com_extensao_invalida",
-      "description": "Será validado que ao enviar um arquivo com extensão inválida irá retornar um erro",
+      "description": "Executar o método `analyse_log` com uma extensão inválida deverá retornar um erro",
       "bonus": false
     }
   ]
