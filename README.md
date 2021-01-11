@@ -301,7 +301,7 @@ A estrutura básica da classe está demonstrada abaixo e já contém as informa�
 class InventoryControl:
     def __init__(self):
         self.ingredients = {
-            'hamburguer': ['pao', 'hamburguer', 'queijo'],
+            'hamburguer': ['pao', 'carne', 'queijo'],
             'pizza': ['massa', 'queijo', 'molho', 'tomate'],
             'queijo-quente': ['pao', 'queijo', 'queijo'],
             'misto-quente': ['pao', 'queijo', 'presunto'],
@@ -311,7 +311,7 @@ class InventoryControl:
   
         self.minimum_inventory = {
             'pao': 50,
-            'hamburguer': 35,
+            'carne': 35,
             'queijo': 100,
             'massa': 20,
             'molho': 30,
@@ -342,14 +342,11 @@ class InventoryControl:
 
 ##### As seguintes verificações serão feitas:
 
-requisitos
+- Executar o método `get_shopping_list` deverá retornar a lista atualizada de ingredientes.
 
+- Executar o método `get_shopping_list` deverá retornar toda a quantiade de ingredientes há se comprar de hamburguer.
 
-
-
-
-
-
+- Executar o método `get_shopping_list` a lista atualizada dos ingredientes que usam receitas diferentes.
 
 ### 4 - Estoque pode acabar
 
