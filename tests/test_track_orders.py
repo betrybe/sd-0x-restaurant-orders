@@ -49,7 +49,7 @@ def test_validar_dia_que_nunca_foi_feito_pedido():
     assert {"segunda-feira", "sabado"} == never_visited
 
 
-def teste_validar_dia_mais_movimentado():
+def test_validar_dia_mais_movimentado():
     track_orders = TrackOrders()
     track_orders.add_new_order("jorge", "frango", "domingo")
     track_orders.add_new_order("jorge", "frango", "domingo")
@@ -60,7 +60,7 @@ def teste_validar_dia_mais_movimentado():
     assert "domingo" == busiest
 
 
-def teste_validar_dia_menos_movimentado():
+def test_validar_dia_menos_movimentado():
     track_orders = TrackOrders()
     track_orders.add_new_order("jorge", "frango", "domingo")
     track_orders.add_new_order("jorge", "frango", "domingo")

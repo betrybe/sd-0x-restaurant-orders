@@ -1,7 +1,7 @@
 from src.inventory_control import InventoryControl
 
 
-def teste_validar_atualizou_a_quantidade_em_estoque():
+def test_validar_atualizou_a_quantidade_em_estoque():
     inventory = InventoryControl()
     inventory.add_new_order("jorge", "hamburguer", "terça-feira")
     inventory.add_new_order("jorge", "hamburguer", "terça-feira")
@@ -18,7 +18,7 @@ def teste_validar_atualizou_a_quantidade_em_estoque():
     assert hamburguer == total_ingredients
 
 
-def teste_validar_comprar_todo_estoque_de_hamburguer():
+def test_validar_comprar_todo_estoque_de_hamburguer():
     ingredients = InventoryControl()
     count = 1
     while count <= 50:
@@ -31,13 +31,13 @@ def teste_validar_comprar_todo_estoque_de_hamburguer():
         "queijo": 50,
         "molho": 0,
         "presunto": 0,
-        "massa": 1,
+        "massa": 0,
         "frango": 0,
     }
     assert hamburguer == total_ingredients
 
 
-def teste_validar_ingrediente_compartilhados():
+def test_validar_ingrediente_compartilhados():
     ingredients = InventoryControl()
     count = 1
     while count <= 50:
@@ -55,3 +55,20 @@ def teste_validar_ingrediente_compartilhados():
         "frango": 0,
     }
     assert hamburguer_pizza == total_ingredients
+
+
+def test_listar_todo_os_pratos_com_ingredientes():
+    ingredients = InventoryControl()
+    ingredients.add_new_order("jorge", "coxinha", "terça-feira")
+    dishes = ingredients.get_available_dishes()
+    assert dishes == ["hamburguer", "pizza", "misto-quente", "coxinha"]
+
+
+def test_nao_listar_pratos_sem_ingredientes():
+    ingredients = InventoryControl()
+    count = 1
+    while count <= 20:
+        ingredients.add_new_order("jorge", "coxinha", "terça-feira")
+        count += 1
+    dishes = ingredients.get_available_dishes()
+    assert dishes == ["hamburguer", "misto-quente"]

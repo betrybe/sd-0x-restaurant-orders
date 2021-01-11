@@ -387,8 +387,6 @@ Altere o arquivo `main.py`:
 
 - Caso o prato que a pessoa solicitou não esteja disponível, não envie as informações do pedido para as demais classes.
 
-##### As seguintes verificações serão feitas:
-
 - Novo método, `get_available_dishes`, implementado e funcionando corretamente.
 
 - Alteração na `main.py` produzindo o efeito esperado.
@@ -397,13 +395,11 @@ Altere o arquivo `main.py`:
 
 - Os métodos fazem uso das técnicas de `Dict` e `Set` vistos no módulo;
 
-########### 8 - Teste do método `get_available_dishes()`
-
 ##### As seguintes verificações serão feitas:
 
-- Testes implementados do método `get_available_dishes` com cobertura de, no mínimo, 90%;
+- Executar o método `get_available_dishes` deverá retornar todos os pratos onde os pratos tem ingredientes.
 
-- Implemente os testes no arquivo `test_inventory_control.py`.
+- Executar o método `get_available_dishes` não deverá retornar os pratos sem ingredientes.
 
 ---
 
