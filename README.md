@@ -320,7 +320,6 @@ class InventoryControl:
             'frango': 10,
         }
 
-    # ajusta pra dizer sobre ignorar
     def add_new_order(self, costumer, order, _day):
         pass
 
@@ -399,7 +398,7 @@ Altere o arquivo `main.py`:
 
 - Executar o método `get_available_dishes` deverá retornar todos os pratos onde os pratos tem ingredientes.
 
-- Executar o método `get_available_dishes` não deverá retornar os pratos sem ingredientes.
+- Executar o método `get_available_dishes` não deverá retornar os pratos o qual os ingradientes não sejam suficientes para prepará-los.
 
 ---
 
