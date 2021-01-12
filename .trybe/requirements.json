@@ -72,11 +72,8 @@
     },
     {
       "identifier": "test_nao_listar_pratos_sem_ingredientes",
-      "description": "Executar o método `get_available_dishes` não deverá retornar os pratos sem ingredientes",
+      "description": "Executar o método `get_available_dishes` não deverá retornar os pratos o qual os ingradientes não sejam suficientes para prepará-los",
       "bonus": true
     }
-
-
-    
   ]
 }
