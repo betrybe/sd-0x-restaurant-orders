@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           pr_number: ${{ github.event.number }}
       - name: Pytest Evaluator Step
-        uses: betrybe/pytest-evaluator-action@v1.3
+        uses: betrybe/pytest-evaluator-action@prepara-avaliador-v3
         with:
           repository_main_branch: master
         id: pytest_evaluator
