@@ -123,7 +123,7 @@ $ python3 -m flake8
 
 ## Requisitos obrigatórios:
 
-### 1 - Campanha de publicidade, implemente um método chamado `analyse_log.py` que gere informações de uma lanchonete.
+### 1 - Campanha de publicidade, implemente um método chamado `analyze_log` no módulo `src/analyze_log.py` que gere informações de uma lanchonete.
 
 A lanchonete quer promover ações de marketing e, para isso, a agência de publicidade precisa exatamente das informações abaixo:
 
@@ -143,7 +143,7 @@ O `log` a ser utilizado é o arquivo `data/orders_1.csv`. Todas as informações
 
 #### Implementação
 
-No arquivo `analyse_log.py`, escreva uma função que responda às seguintes perguntas abaixo:
+No arquivo `analyze_log.py`, escreva uma função que responda às seguintes perguntas abaixo:
 
 - Qual o prato mais pedido por 'maria'?
 
@@ -174,7 +174,7 @@ hamburguer;
 {'sabado', 'segunda-feira'}
 ```
 
-- No arquivo analyse_log.py deve estar implementada a função `def analyse_log(path_to_file)`;
+- No arquivo analyze_log.py deve estar implementada a função `def analyze_log(path_to_file)`;
 
 - A função deve realizar a leitura do `log` e salvar em um arquivo `txt` as informações solicitadas;
 
@@ -184,11 +184,11 @@ hamburguer;
 
 ##### As seguintes verificações serão feitas:
 
-- Executar o método `analyse_log` deverá preencher corretamente os dados no arquivo `data/mkt_campaign.txt`
+- Executar o método `analyze_log` deverá preencher corretamente os dados no arquivo `data/mkt_campaign.txt`
 
-- Executar o método `analyse_log` com um arquivo inexistente deverá retornar um erro
+- Executar o método `analyze_log` com um arquivo inexistente deverá retornar um erro
 
-- Executar o método `analyse_log` com uma extensão inválida deverá retornar um erro
+- Executar o método `analyze_log` com uma extensão inválida deverá retornar um erro
 
 ### 2 - Análises contínuas, implemente a classe `TrackOrders` que gere informações contínuas de uma lanchonete.
 
