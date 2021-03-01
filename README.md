@@ -12,9 +12,9 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 1. Clone o repositório
 
-- `git clone https://github.com/tryber/sd-0x-restaurant-orders.git`.
+- `git clone https://github.com/tryber/sd-0x-restaurant-orders-rubric.git`.
 - Entre na pasta do repositório que você acabou de clonar:
-  - `sd-0x-restaurant-orders`
+  - `sd-0x-restaurant-orders-rubric`
 
 2. Crie o ambiente virtual para o projeto
 
@@ -53,7 +53,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 7. Crie um novo `Pull Request` _(PR)_
 
-- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-restaurant-orders/pulls)
+- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-restaurant-orders-rubric/pulls)
 - Clique no botão verde _"New pull request"_
 - Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
 - Clique no botão verde _"Create pull request"_
@@ -123,7 +123,7 @@ $ python3 -m flake8
 
 ## Requisitos obrigatórios:
 
-### 1 - Campanha de publicidade, implemente um método chamado `analyse_log.py` que gere informações de uma lanchonete.
+### 1 - Campanha de publicidade, implemente um método chamado `analyze_log` no módulo `src/analyze_log.py` que gere informações de uma lanchonete.
 
 A lanchonete quer promover ações de marketing e, para isso, a agência de publicidade precisa exatamente das informações abaixo:
 
@@ -143,7 +143,7 @@ O `log` a ser utilizado é o arquivo `data/orders_1.csv`. Todas as informações
 
 #### Implementação
 
-No arquivo `analyse_log.py`, escreva uma função que responda às seguintes perguntas abaixo:
+No arquivo `analyze_log.py`, escreva uma função que responda às seguintes perguntas abaixo:
 
 - Qual o prato mais pedido por 'maria'?
 
@@ -174,7 +174,7 @@ hamburguer;
 {'sabado', 'segunda-feira'}
 ```
 
-- No arquivo analyse_log.py deve estar implementada a função `def analyse_log(path_to_file)`;
+- No arquivo analyze_log.py deve estar implementada a função `def analyze_log(path_to_file)`;
 
 - A função deve realizar a leitura do `log` e salvar em um arquivo `txt` as informações solicitadas;
 
@@ -184,11 +184,11 @@ hamburguer;
 
 ##### As seguintes verificações serão feitas:
 
-- Executar o método `analyse_log` deverá preencher corretamente os dados no arquivo `data/mkt_campaign.txt`
+- Executar o método `analyze_log` deverá preencher corretamente os dados no arquivo `data/mkt_campaign.txt`
 
-- Executar o método `analyse_log` com um arquivo inexistente deverá retornar um erro
+- Executar o método `analyze_log` com um arquivo inexistente deverá retornar um erro
 
-- Executar o método `analyse_log` com uma extensão inválida deverá retornar um erro
+- Executar o método `analyze_log` com uma extensão inválida deverá retornar um erro
 
 ### 2 - Análises contínuas, implemente a classe `TrackOrders` que gere informações contínuas de uma lanchonete.
 
@@ -311,13 +311,12 @@ class InventoryControl:
   
         self.minimum_inventory = {
             'pao': 50,
-            'carne': 35,
+            'carne': 50,
             'queijo': 100,
-            'massa': 20,
-            'molho': 30,
-            'tomate': 35,
-            'presunto': 20,
-            'frango': 10,
+            'molho': 50,
+            'presunto': 50,
+            'massa': 50,
+            'frango': 50,
         }
 
     def add_new_order(self, costumer, order, _day):
@@ -396,6 +395,8 @@ Altere o arquivo `main.py`:
 
 ##### As seguintes verificações serão feitas:
 
+- Adicionar uma quantidade maior de ingredientes deverá retornar false
+
 - Executar o método `get_available_dishes` deverá retornar todos os pratos onde os pratos tem ingredientes.
 
 - Executar o método `get_available_dishes` não deverá retornar os pratos o qual os ingradientes não sejam suficientes para prepará-los.
@@ -427,7 +428,7 @@ Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus co
 
   - No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
 
-  - No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-0x`.
+  - No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
 
 Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
